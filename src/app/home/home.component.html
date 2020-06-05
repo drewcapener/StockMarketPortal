@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="screen-container">
+        Words
+        <div class="screen" *ngIf="isOn">
+            <p class="title">STOCK MARKET PORTAL</p>
+            <div class="input-container">
+                <label class="input-label" for="player">PLAYER:</label>
+                <input class="input" type="text" name="player">
+            </div>
+            <div class="input-container">
+                <label class="input-label" for="pwd">PWD:</label>
+                <input class="input" type="text" name="pwd">
+            </div>
+        </div>
+    </div>
+    <div class="button-panel">
+        <span class="start-button" (click)="isOn = true">
+            <span class="start-ring-1">
+                <span class="start-ring-2">
+                    <span class="start-ring-3">
+                        <span class="button-text">START</span>
+                    </span>
+                </span>
+            </span>    
+        </span>
+        <span class="stop-button" (click)="isOn = false">
+            <span class="stop-ring-1">
+                <span class="stop-ring-2">
+                    <span class="stop-ring-3">
+                        <span class="button-text">STOP</span>
+                    </span>
+                </span>
+            </span>    
+        </span>
+    </div>
+</div>

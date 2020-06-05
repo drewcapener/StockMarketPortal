@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://img.icons8.com/officel/16/000000/hand-cursor.png');
+
+$regular-cursor: url('https://img.icons8.com/officel/30/000000/hand-cursor.png');
+$big-cursor: url('https://img.icons8.com/officel/40/000000/hand-cursor.png');
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    background-color: black;
+    cursor: $regular-cursor, auto;
+}

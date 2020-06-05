@@ -1,0 +1,237 @@
+$button-border: #805e37;
+$stop-button-ring-border: #960505;
+$start-button-ring-border: #014a14;
+$button-diameter: 15vh;
+
+.stop-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $button-diameter;
+    width: $button-diameter;
+    background-color: red;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.5vh;
+    border-color: $button-border;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    animation-name: blinking-stop;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    :hover {
+        border-width: 0.5vh;
+    }
+}
+
+.start-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $button-diameter;
+    width: $button-diameter;
+    background-color:green;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.5vh;
+    border-color: $button-border;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    animation-name: blinking-start;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    :hover {
+        border-width: 0.5vh;
+    }
+}
+
+@for $i from 1 through 3 {
+    .stop-ring-#{$i} {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: none;
+        height: $button-diameter - $i;
+        width: $button-diameter - $i;
+        border-style: solid;
+        border-radius: 50%;
+        border-color: $stop-button-ring-border;
+        border-width: 0.45vh;
+        animation-name: blinking-stop-rings;
+        animation-duration: 2.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+    }
+}
+
+@for $i from 1 through 3 {
+    .start-ring-#{$i} {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: none;
+        height: $button-diameter - $i;
+        width: $button-diameter - $i;
+        border-style: solid;
+        border-radius: 50%;
+        border-color: $start-button-ring-border;
+        border-width: 0.45vh;
+        animation-name: blinking-start-rings;
+        animation-duration: 2.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes blinking-stop {
+    25% {
+            background-color: black;
+            border-color: black;
+        }
+    75% {
+            background-color: red;
+            border-color: $button-border;
+        }
+}
+
+@keyframes blinking-start {
+    25% {
+            background-color: black;
+            border-color: black;
+        }
+    75% {
+            background-color: green;
+            border-color: $button-border;
+        }
+}
+
+@keyframes blinking-stop-rings {
+    25% {
+            border-color: black;
+        }
+    75% {
+            border-color: $stop-button-ring-border;
+        }
+}
+
+@keyframes blinking-start-rings {
+    25% {
+        border-color: black;
+        }
+    75% {
+        border-color: $start-button-ring-border;
+        }
+}
+
+.button-text {
+    font-family: 'Bangers', cursive;
+    font-size: 5vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    perspective: 160px;
+    text-align: center;
+}
+
+.button-panel {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5vh;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1f1e1e;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+.screen-container {
+    height: 100%;
+    width: 100%;
+    margin: 5vh;
+    background-color: none;
+}
+
+$name-color: yellow;
+
+@keyframes pop-crackle {
+    0% {
+            color: $name-color;
+        }
+    1% {
+        color: black;
+    }
+    2% {
+        color: $name-color;
+    }
+    3% {
+            color: black;
+        }
+    5% {
+            color: $name-color;
+        }
+    7% {
+            color: black;
+        }
+    10% {
+            color: $name-color;
+        }
+    13% {
+            color: black;
+        }
+    14% {
+        color: $name-color;
+    }
+}
+
+.title {
+    margin: 1vh;
+    padding: 0.5vh;
+    font-family: 'Press Start 2P', cursive;
+    color: $name-color;
+    font-size: 5vh;
+    background-color: inherit;
+    width: 60%;
+    animation-name: pop-crackle;
+    animation-duration: 1.25s;
+    animation-timing-function: ease-in;
+    border-style: dashed;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    margin: 1vh;
+}
+
+.input-label {
+    font-family: 'Press Start 2P', cursive;
+    color: magenta;
+    font-size: 2vh;
+}
+
+.input {
+    font-family: 'Press Start 2P', cursive;
+    color: magenta;
+    font-size: 2vh;
+    background-color: inherit;
+    border-style: none;
+}
+
+input:focus {
+    outline: none;
+}
