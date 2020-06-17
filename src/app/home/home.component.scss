@@ -1,3 +1,5 @@
+@import "../../styles";
+
 $button-border: #805e37;
 $stop-button-ring-border: #960505;
 $start-button-ring-border: #014a14;
@@ -16,10 +18,6 @@ $button-diameter: 15vh;
     border-color: $button-border;
     margin-left: 5vh;
     margin-right: 5vh;
-    animation-name: blinking-stop;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
     :hover {
         border-width: 0.5vh;
     }
@@ -38,10 +36,6 @@ $button-diameter: 15vh;
     border-color: $button-border;
     margin-left: 5vh;
     margin-right: 5vh;
-    animation-name: blinking-start;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
     :hover {
         border-width: 0.5vh;
     }
@@ -85,31 +79,9 @@ $button-diameter: 15vh;
     }
 }
 
-@keyframes blinking-stop {
-    25% {
-            background-color: black;
-            border-color: black;
-        }
-    75% {
-            background-color: red;
-            border-color: $button-border;
-        }
-}
-
-@keyframes blinking-start {
-    25% {
-            background-color: black;
-            border-color: black;
-        }
-    75% {
-            background-color: green;
-            border-color: $button-border;
-        }
-}
-
 @keyframes blinking-stop-rings {
     25% {
-            border-color: black;
+            border-color: #660101;
         }
     75% {
             border-color: $stop-button-ring-border;
@@ -118,7 +90,7 @@ $button-diameter: 15vh;
 
 @keyframes blinking-start-rings {
     25% {
-        border-color: black;
+        border-color: #244002;
         }
     75% {
         border-color: $start-button-ring-border;
@@ -151,77 +123,52 @@ $button-diameter: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1f1e1e;
+    background-color: $screen-color;
     color: white;
     height: 100%;
-    width: 100%;
+    width: 95%;
 }
 
 .screen-container {
+    display: flex;
+    justify-content: center;
     height: 100%;
     width: 100%;
     margin: 5vh;
     background-color: none;
 }
 
-$name-color: yellow;
-
-@keyframes pop-crackle {
-    0% {
-            color: $name-color;
-        }
-    1% {
-        color: black;
-    }
-    2% {
-        color: $name-color;
-    }
-    3% {
-            color: black;
-        }
-    5% {
-            color: $name-color;
-        }
-    7% {
-            color: black;
-        }
-    10% {
-            color: $name-color;
-        }
-    13% {
-            color: black;
-        }
-    14% {
-        color: $name-color;
-    }
-}
-
 .title {
     margin: 1vh;
     padding: 0.5vh;
     font-family: 'Press Start 2P', cursive;
-    color: $name-color;
+    color: $text-color-1;
     font-size: 5vh;
     background-color: inherit;
     width: 60%;
-    animation-name: pop-crackle;
-    animation-duration: 1.25s;
-    animation-timing-function: ease-in;
+    @include pop-crackle-1;
     border-style: dashed;
 }
 
-.input-container {
+.input-labels {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: center;
-    margin: 1vh;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .input-label {
     font-family: 'Press Start 2P', cursive;
     color: magenta;
     font-size: 2vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    @include pop-crackle-2;
 }
 
 .input {
@@ -230,8 +177,39 @@ $name-color: yellow;
     font-size: 2vh;
     background-color: inherit;
     border-style: none;
+    caret-color: $screen-color;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    @include pop-crackle-2;
 }
 
 input:focus {
     outline: none;
+    background-color: $text-color-1;
+    caret-color: $text-color-1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    background-color: $screen-color;
+    border-style: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2vh;
+    color: magenta;
+    @include pop-crackle-2;
+}
+
+button:focus {
+    background-color: $text-color-1;
+}
+
+.stock-display {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

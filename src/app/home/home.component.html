@@ -1,15 +1,22 @@
 <div class="container">
     <div class="screen-container">
-        Words
         <div class="screen" *ngIf="isOn">
             <p class="title">STOCK MARKET PORTAL</p>
-            <div class="input-container">
-                <label class="input-label" for="player">PLAYER:</label>
-                <input class="input" type="text" name="player">
+            <div *ngIf="!isValidUser" class="form-container">
+                <form class="input-group" #login="ngForm">
+                    <div class="input-labels">
+                        <label class="input-label" for="user">USER:</label>
+                        <label class="input-label" for="pwd">PWD:</label>
+                    </div>
+                    <div class="input-boxes">
+                        <input class="input" type="text" name="user" [(ngModel)]="user.username" (ngModelChange)="checkUsername()">
+                        <input class="input" type="password" name="pwd" [(ngModel)]="user.password" (ngModelChange)="checkPassword()">
+                    </div>
+                </form>
+                <button *ngIf="usernameValid && passwordValid" class="button" (click)="onSubmit()">ENTER</button>
             </div>
-            <div class="input-container">
-                <label class="input-label" for="pwd">PWD:</label>
-                <input class="input" type="text" name="pwd">
+            <div *ngIf="isValidUser" class="stock-display">
+                <app-stock-outlet *ngFor="let stock of stocks" [stock]="stock"></app-stock-outlet>
             </div>
         </div>
     </div>
@@ -23,7 +30,7 @@
                 </span>
             </span>    
         </span>
-        <span class="stop-button" (click)="isOn = false">
+        <span class="stop-button" (click)="stopClick()">
             <span class="stop-ring-1">
                 <span class="stop-ring-2">
                     <span class="stop-ring-3">

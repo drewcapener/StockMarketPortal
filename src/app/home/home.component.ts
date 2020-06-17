@@ -1,29 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { transition, trigger, animate, keyframes, style } from '@angular/animations';
+import { User } from '../user';
+import { Stock } from '../stock';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  animations: [
-    trigger('animation', [
-      transition('void => *',
-      animate("5s", keyframes([
-        style({ backgroundColor: "red", offset: 0 }),
-        style({ backgroundColor: "blue", offset: 0.2 }),
-        style({ backgroundColor: "orange", offset: 0.3 }),
-        style({ backgroundColor: "black", offset: 1 })
-      ]))
-      )
-    ])
-  ]
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  user = new User('', '');
+  stocks = [new Stock('TSLA'), new Stock('AMZN'), new Stock('NVDA'), new Stock('TSLA'), new Stock('AMZN'), new Stock('NVDA')];
+  usernameValid: boolean = false;
+  passwordValid: boolean = false;
   isOn: boolean = false;
+  isValidUser: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  checkUsername(): void {
+    if (this.user.username !== '') {
+      this.usernameValid = true;
+    }
+  }
+
+  checkPassword(): void {
+    if (this.user.password !== '') {
+      this.passwordValid = true;
+    }
+  }
+
+  stopClick(): void {
+    this.isOn = false;
+  }
+
+  onSubmit(): void {
+    this.isValidUser = this.verifyUser(this.user.username, this.user.password);
+  }
+
+  verifyUser(username: string, password: string): boolean {
+    if (username === 'drew' && password === 'drew') {
+      return true;
+    } else { 
+      return false;
+    }
   }
 
 }

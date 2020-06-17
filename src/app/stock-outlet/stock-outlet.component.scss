@@ -1,0 +1,55 @@
+@import "../../styles";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    color: $text-color-1;
+    font-size: 1vh;
+    margin: 1vh;
+    padding: 0.5vh;
+    font-family: 'Press Start 2P', cursive;
+    color: $text-color-1;
+    background-color: inherit;
+    width: 15vw;
+    height: 15vw;
+    @include pop-crackle-1;
+    border-style: dashed;
+}
+
+.title {
+    color: $text-color-2;
+    font-size: 2vh;
+}
+
+.display-outlet {
+    flex-grow: 1;
+    border-style: dashed;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.option {
+    background-color: $screen-color;
+    border-style: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1vh;
+    color: $text-color-2;
+    margin: 1vh;
+    width: 25%;
+}
+
+.option:hover {
+    font-weight: bold;
+    border-style: none;
+    border-style: dashed;
+    border-color: $text-color-2;
+}
+
+.option:focus {
+    border-style: dashed;
+    border-color: $text-color-1;
+    outline: none;
+}

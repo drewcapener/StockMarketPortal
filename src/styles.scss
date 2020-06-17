@@ -6,10 +6,86 @@
 $regular-cursor: url('https://img.icons8.com/officel/30/000000/hand-cursor.png');
 $big-cursor: url('https://img.icons8.com/officel/40/000000/hand-cursor.png');
 
+$text-color-1: yellow;
+$text-color-2: magenta;
+$screen-color: #1f1e1e;
+
 html, body {
     margin: 0px;
     padding: 0px;
     height: 100vh;
     background-color: black;
     cursor: $regular-cursor, auto;
+}
+
+$pop-crackle-duration: 1.25s;
+
+@mixin pop-crackle-1 {
+    animation-name: animation-1;
+    animation-duration: $pop-crackle-duration;
+    animation-timing-function: ease-in;
+    @keyframes animation-1 {
+        0% {
+                color: $text-color-1;
+            }
+        1% {
+                color: $screen-color;
+            }
+        2% {
+                color: $text-color-1;
+            }
+        3% {
+                color: $screen-color;
+            }
+        5% {
+                color: $text-color-1;
+            }
+        7% {
+                color: $screen-color;
+            }
+        10% {
+                color: $text-color-1;
+            }
+        13% {
+                color: $screen-color;
+            }
+        14% {
+                color: $text-color-1;
+            }
+    }
+}
+
+@mixin pop-crackle-2 {
+    animation-name: animation-2;
+    animation-duration: $pop-crackle-duration;
+    animation-timing-function: ease-in;
+    @keyframes animation-2 {
+        0% {
+                color: $text-color-2;
+            }
+        1% {
+                color: $screen-color;
+            }
+        2% {
+                color: $text-color-2;
+            }
+        3% {
+                color: $screen-color;
+            }
+        5% {
+                color: $text-color-2;
+            }
+        7% {
+                color: $screen-color;
+            }
+        10% {
+                color: $text-color-2;
+            }
+        13% {
+                color: $screen-color;
+            }
+        14% {
+                color: $text-color-2;
+            }
+    }
 }
